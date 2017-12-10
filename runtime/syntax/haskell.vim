@@ -59,8 +59,8 @@ syn match   hsSpecialCharError	contained "\\&\|'''\+"
 syn region  hsString		start=+"+  skip=+\\\\\|\\"+  end=+"+  contains=hsSpecialChar
 syn match   hsCharacter		"[^a-zA-Z0-9_']'\([^\\]\|\\[^']\+\|\\'\)'"lc=1 contains=hsSpecialChar,hsSpecialCharError
 syn match   hsCharacter		"^'\([^\\]\|\\[^']\+\|\\'\)'" contains=hsSpecialChar,hsSpecialCharError
-syn match   hsNumber		"\<[0-9]\+\>\|\<0[xX][0-9a-fA-F]\+\>\|\<0[oO][0-7]\+\>"
-syn match   hsFloat		"\<[0-9]\+\.[0-9]\+\([eE][-+]\=[0-9]\+\)\=\>"
+syn match   hsNumber		"\v<[0-9][0-9_]*>|<0[xX][0-9a-fA-F_]+>|<0[oO][0-7_]+>|<0[bB][01_]+>"
+syn match   hsFloat		"\v<[0-9][0-9_]*%(\.[0-9_]+%([eE][-+]?[0-9_]+)?>|[eE][-+]?[0-9_]+)>|<0[xX][0-9a-fA-F_]+%(\.[0-9a-fA-F_]+%([pP][-+]?[0-9_]+)?>|[pP][-+]?[0-9_]+)>"
 
 " Keyword definitions. These must be patterns instead of keywords
 " because otherwise they would match as keywords at the start of a
